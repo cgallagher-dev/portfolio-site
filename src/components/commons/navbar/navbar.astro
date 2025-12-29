@@ -48,7 +48,7 @@ const links = [
           <NotificationBell client:visible />
 
           <a
-            href="https://www.linkedin.com/in/charlie-gallagher-dev/"
+            href="https://www.linkedin.com/in/charliegallagher2004/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
@@ -118,10 +118,10 @@ const links = [
     function markActiveLinks() {
       const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
       const desktopLinks = Array.from(
-        document.querySelectorAll("#navbar-links .nav-link")
+        document.querySelectorAll("#navbar-links .nav-link"),
       );
       const mobileLinks = Array.from(
-        document.querySelectorAll("#navbar-links-mobile .nav-link-mobile")
+        document.querySelectorAll("#navbar-links-mobile .nav-link-mobile"),
       );
 
       const allLinks = [...desktopLinks, ...mobileLinks];
