@@ -1,0 +1,222 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { HiChip, HiCamera, HiBeaker } from "react-icons/hi";
+---
+
+<Layout
+  title="BEESAFE - Edge AI Computer Vision"
+  description="Edge AI system for Varroa mite detection"
+>
+  <!-- Hero Section -->
+  <section
+    class="relative bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 px-6 py-20"
+  >
+    <div class="mx-auto max-w-5xl">
+      <a
+        href="/projects"
+        class="inline-flex items-center gap-2 text-[#69c7c7] hover:text-[#46caca] transition-colors mb-8 font-semibold"
+      >
+        ← Back to Projects
+      </a>
+
+      <div class="flex items-center gap-4 mb-6">
+        <HiCamera className="text-[#69c7c7]" size={48} />
+        <h1
+          class="text-5xl md:text-6xl font-bold text-white drop-shadow-[3px_3px_0_#7836cf]"
+        >
+          BEESAFE
+        </h1>
+      </div>
+
+      <p class="text-2xl text-[#69c7c7] font-semibold mb-4">
+        Edge AI Computer Vision for Varroa Mite Detection
+      </p>
+
+      <p class="text-lg text-gray-300 max-w-3xl mb-8">
+        Real-time computer vision system deployed on edge devices to detect
+        Varroa mites on honeybees, demonstrating a complete machine learning
+        lifecycle from data acquisition to hardware-constrained deployment.
+      </p>
+
+      <div class="flex gap-4 flex-wrap">
+        <a
+          href="#"
+          class="px-6 py-3 bg-gray-800 text-white font-bold rounded-full hover:bg-gray-700 drop-shadow-[3px_3px_0_#7836cf] transition-all active:translate-y-0.5 active:drop-shadow-none"
+        >
+          Live Demo (Coming Soon)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Pipeline Section -->
+  <section class="bg-gray-900 px-6 py-16">
+    <div class="mx-auto max-w-5xl">
+      <h2
+        class="text-4xl font-bold text-white mb-12 text-center drop-shadow-[2px_2px_0_#7836cf]"
+      >
+        Technical Pipeline
+      </h2>
+
+      <div class="grid md:grid-cols-4 gap-6">
+        <!-- Step 1 -->
+        <div
+          class="bg-gray-800/50 p-6 rounded-xl border border-[#69c7c7]/20 hover:border-[#69c7c7]/50 transition-all"
+        >
+          <div
+            class="w-12 h-12 bg-[#69c7c7]/10 rounded-full flex items-center justify-center mb-4"
+          >
+            <span class="text-2xl font-bold text-[#69c7c7]">1</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Data Acquisition</h3>
+          <p class="text-gray-300 text-sm mb-3">
+            Dataset sourced and annotated using Roboflow's labeling tools
+          </p>
+          <span
+            class="px-3 py-1 bg-[#69c7c7]/10 text-[#69c7c7] text-xs font-bold rounded-full border border-[#69c7c7]/20"
+          >
+            Roboflow
+          </span>
+        </div>
+
+        <!-- Step 2 -->
+        <div
+          class="bg-gray-800/50 p-6 rounded-xl border border-[#69c7c7]/20 hover:border-[#69c7c7]/50 transition-all"
+        >
+          <div
+            class="w-12 h-12 bg-[#69c7c7]/10 rounded-full flex items-center justify-center mb-4"
+          >
+            <span class="text-2xl font-bold text-[#69c7c7]">2</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Model Training</h3>
+          <p class="text-gray-300 text-sm mb-3">
+            Deep learning model trained on labeled honeybee images
+          </p>
+          <span
+            class="px-3 py-1 bg-[#69c7c7]/10 text-[#69c7c7] text-xs font-bold rounded-full border border-[#69c7c7]/20"
+          >
+            Python
+          </span>
+        </div>
+
+        <!-- Step 3 -->
+        <div
+          class="bg-gray-800/50 p-6 rounded-xl border border-[#69c7c7]/20 hover:border-[#69c7c7]/50 transition-all"
+        >
+          <div
+            class="w-12 h-12 bg-[#69c7c7]/10 rounded-full flex items-center justify-center mb-4"
+          >
+            <span class="text-2xl font-bold text-[#69c7c7]">3</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Optimization</h3>
+          <p class="text-gray-300 text-sm mb-3">
+            Model converted to ONNX format for cross-platform compatibility
+          </p>
+          <span
+            class="px-3 py-1 bg-[#69c7c7]/10 text-[#69c7c7] text-xs font-bold rounded-full border border-[#69c7c7]/20"
+          >
+            ONNX
+          </span>
+        </div>
+
+        <!-- Step 4 -->
+        <div
+          class="bg-gray-800/50 p-6 rounded-xl border border-[#69c7c7]/20 hover:border-[#69c7c7]/50 transition-all"
+        >
+          <div
+            class="w-12 h-12 bg-[#69c7c7]/10 rounded-full flex items-center justify-center mb-4"
+          >
+            <span class="text-2xl font-bold text-[#69c7c7]">4</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Edge Deployment</h3>
+          <p class="text-gray-300 text-sm mb-3">
+            Converted to TensorFlow Lite for mobile/edge devices
+          </p>
+          <span
+            class="px-3 py-1 bg-[#69c7c7]/10 text-[#69c7c7] text-xs font-bold rounded-full border border-[#69c7c7]/20"
+          >
+            TFLite
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Features Section -->
+  <section class="bg-gray-950 px-6 py-16">
+    <div class="mx-auto max-w-5xl">
+      <h2
+        class="text-4xl font-bold text-white mb-12 text-center drop-shadow-[2px_2px_0_#7836cf]"
+      >
+        Key Features & Impact
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div
+          class="bg-gray-900 p-8 rounded-2xl border border-white/5 drop-shadow-[4px_4px_0_#69c7c7]"
+        >
+          <HiChip className="text-[#69c7c7] mb-4" size={40} />
+          <h3 class="text-2xl font-bold text-white mb-3">Edge Intelligence</h3>
+          <p class="text-gray-300">
+            Optimized for resource-constrained environments, enabling real-time
+            inference on mobile devices without cloud dependency.
+          </p>
+        </div>
+
+        <div
+          class="bg-gray-900 p-8 rounded-2xl border border-white/5 drop-shadow-[4px_4px_0_#69c7c7]"
+        >
+          <HiBeaker className="text-[#69c7c7] mb-4" size={40} />
+          <h3 class="text-2xl font-bold text-white mb-3">
+            Agritech Application
+          </h3>
+          <p class="text-gray-300">
+            Addresses a critical problem in beekeeping by providing early Varroa
+            mite detection, helping protect bee colonies and agricultural
+            ecosystems.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack Section -->
+  <section class="bg-gray-900 px-6 py-16">
+    <div class="mx-auto max-w-5xl">
+      <h2
+        class="text-4xl font-bold text-white mb-12 text-center drop-shadow-[2px_2px_0_#7836cf]"
+      >
+        Technology Stack
+      </h2>
+
+      <div class="flex flex-wrap justify-center gap-4">
+        {
+          [
+            "Python",
+            "TensorFlow Lite",
+            "ONNX",
+            "Roboflow",
+            "Edge AI",
+            "Computer Vision",
+          ].map((tech) => (
+            <span class="px-6 py-3 bg-gray-800 text-[#69c7c7] font-bold rounded-full border border-[#69c7c7]/30 hover:border-[#69c7c7] transition-all drop-shadow-[2px_2px_0_#7836cf]">
+              {tech}
+            </span>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- IMAGE PLACEHOLDER COMMENT -->
+  <!-- 
+  SUGGESTED IMAGE for Hero Section:
+  - Screenshot of bounding boxes overlaid on a honeybee showing detected Varroa mites
+  - Side-by-side: Raw bee image + Detection result with confidence scores
+  - Close-up macro photo of a Varroa mite on a bee for context
+  
+  SUGGESTED IMAGE for Technical Pipeline:
+  - Flowchart diagram showing: Dataset → Training → ONNX → TFLite → Mobile App
+  - Before/after model optimization metrics (size, inference time)
+  -->
+</Layout>

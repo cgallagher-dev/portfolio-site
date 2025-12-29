@@ -1,0 +1,99 @@
+---
+import MiFoto from "../../assets/img/MiFoto.png";
+---
+
+<!-- Contenedor principal -->
+<div
+  class="mx-auto mt-20 grid grid-cols-1 lg:grid-cols-2 max-w-5xl items-center gap-8 px-6"
+>
+  <!-- Imagen -->
+  <div
+    class="border-primary h-64 w-64 overflow-hidden rounded-2xl shadow-lg md:h-96 md:w-96 drop-shadow-[4px_4px_0_#7836cf] mx-auto"
+  >
+    <img
+      src={MiFoto.src}
+      alt="Foto de Charlie"
+      class="h-full w-full object-cover"
+    />
+  </div>
+
+  <!-- Texto -->
+  <div class="w-full text-gray-300 text-center lg:text-left">
+    <h2 class="text-3xl font-bold text-white">
+      I'm <span class="text-white text-shadow">Charlie Gallagher</span>
+    </h2>
+    <p class="mt-4">
+      I am based in <span class="text-primary font-semibold"
+        >Athlone, Ireland</span
+      > and currently a
+      <span class="text-primary font-semibold"
+        >3rd Year Software Engineering Student</span
+      > at
+      <span class="text-primary font-semibold"
+        >Technological University of the Shannon (TUS)</span
+      >, specialising in <span class="text-primary font-semibold"
+        >Artificial Intelligence for Cloud Computing</span
+      >.
+    </p>
+
+    <p class="mt-4">
+      My professional objective is to <span class="text-primary font-semibold"
+        >deploy scalable AI and cloud solutions</span
+      >
+      for real-world challenges in enterprise infrastructure. Starting January 2026,
+      I will be joining
+      <span class="text-primary font-semibold"
+        >Hewlett Packard Enterprise (HPE)</span
+      > as an
+      <span class="text-primary font-semibold"
+        >AI Innovation Engineer Intern</span
+      >.
+    </p>
+
+    <p class="mt-4">
+      I also serve as the <span class="text-primary font-semibold"
+        >Chair of the TUS RUN-EU Student Council</span
+      >, representing over 15,000 students in Ireland across 9 European higher
+      education institutions.
+    </p>
+
+    <div class="mt-6">
+      <h3
+        class="text-xl font-bold text-white mb-2 pb-2 border-b border-gray-700 inline-block"
+      >
+        Interests & Technical Hobbies
+      </h3>
+      <ul
+        class="text-sm space-y-2 mt-2 flex flex-col items-center lg:items-start pl-0"
+      >
+        <li
+          class="flex items-start justify-center lg:justify-start gap-2 w-full"
+        >
+          <span class="text-[#69c7c7]">→</span>
+          <span
+            ><strong class="text-white">Game Modding:</strong> Configuring complex
+            load orders, .ini tweaks, and system patching.</span
+          >
+        </li>
+        <li
+          class="flex items-start justify-center lg:justify-start gap-2 w-full"
+        >
+          <span class="text-[#69c7c7]">→</span>
+          <span
+            ><strong class="text-white">Tabletop RPGs:</strong> Mechanical design
+            and collaborative systems theory.</span
+          >
+        </li>
+        <li
+          class="flex items-start justify-center lg:justify-start gap-2 w-full"
+        >
+          <span class="text-[#69c7c7]">→</span>
+          <span
+            ><strong class="text-white">Multimedia:</strong> Professional asset production
+            with Adobe Creative Suite.</span
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

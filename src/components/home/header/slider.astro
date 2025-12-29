@@ -1,0 +1,86 @@
+---
+const technologies = [
+  "python",
+  "java",
+  "kotlin",
+  "docker",
+  "tensorflow",
+  "aws",
+  "azure",
+  "git",
+  "androidstudio",
+  "react",
+  "typeScript",
+  "astro",
+];
+---
+
+<div class="relative overflow-x-hidden px-8 py-8">
+  <div class="animate-scroll hover:animate-paused flex w-max gap-12 md:gap-20">
+    {
+      [
+        { name: "Python", icon: "python" },
+        { name: "Java", icon: "java" },
+        { name: "Kotlin", icon: "kotlin" },
+        { name: "PHP", icon: "php" },
+        { name: "JavaScript", icon: "javascript" },
+        { name: "SQL", icon: "mysql" },
+        { name: "Docker", icon: "docker" },
+        { name: "TensorFlow", icon: "tensorflow" },
+        { name: "PyTorch", icon: "pytorch" },
+        { name: "AWS", img: "/svg/aws.svg" }, // Force local SVG
+        { name: "Azure", icon: "azure" },
+        { name: "Git", icon: "git" },
+        { name: "Android Studio", icon: "androidstudio" },
+      ].concat([
+        { name: "Python", icon: "python" },
+        { name: "Java", icon: "java" },
+        { name: "Kotlin", icon: "kotlin" },
+        { name: "PHP", icon: "php" },
+        { name: "JavaScript", icon: "javascript" },
+        { name: "SQL", icon: "mysql" },
+        { name: "Docker", icon: "docker" },
+        { name: "TensorFlow", icon: "tensorflow" },
+        { name: "PyTorch", icon: "pytorch" },
+        { name: "AWS", img: "/svg/aws.svg" },
+        { name: "Azure", icon: "azure" },
+        { name: "Git", icon: "git" },
+        { name: "Android Studio", icon: "androidstudio" },
+      ]).map((tech) => (
+        <div class="group flex items-center gap-2 transition-all duration-300">
+          <img
+            src={tech.img || `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tech.icon}/${tech.icon}-original.svg`}
+            alt={tech.name}
+            class="h-8 w-auto object-contain transition-transform group-hover:scale-110"
+            width="32"
+            height="32"
+            loading="lazy"
+          />
+          <span class="text-lg font-medium text-white">
+            {tech.name}
+          </span>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style is:global>
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  .animate-scroll {
+    animation: scroll 60s linear infinite;
+  }
+
+  @media (min-width: 768px) {
+    .animate-scroll {
+      animation-duration: 80s;
+    }
+  }
+</style>
