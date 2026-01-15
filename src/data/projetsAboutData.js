@@ -25,6 +25,6 @@ export const proyectos = [
     tecnologias: ["Java", "RMI", "MVC", "Distributed Systems"],
     demo: "https://github.com/cgallagher-dev/distributed-inventory-manager-project",
     codigo: "https://github.com/cgallagher-dev/distributed-inventory-manager-project",
-    detailPage: "/projects/distributed-inventory-manager",
+    detailPage: "/projects/distributed-inventory-management",
   },
 ];

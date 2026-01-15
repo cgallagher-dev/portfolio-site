@@ -3,9 +3,14 @@ import Layout from "../../layouts/Layout.astro";
 import { HiBeaker, HiChartBar, HiCog } from "react-icons/hi";
 ---
 
-<Layout title="Mushroom Safety Classifier" description="ML safety classification system">
+<Layout
+  title="Mushroom Safety Classifier"
+  description="ML safety classification system"
+>
   <!-- Hero Section -->
-  <section class="relative bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 px-6 py-20">
+  <section
+    class="relative bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 px-6 py-20"
+  >
     <div class="mx-auto max-w-5xl">
       <a
         href="/projects"
@@ -13,21 +18,24 @@ import { HiBeaker, HiChartBar, HiCog } from "react-icons/hi";
       >
         ← Back to Projects
       </a>
-      
+
       <div class="flex items-center gap-4 mb-6">
         <HiBeaker className="text-[#69c7c7]" size={48} />
-        <h1 class="text-5xl md:text-6xl font-bold text-white drop-shadow-[3px_3px_0_#7836cf]">
+        <h1
+          class="text-5xl md:text-6xl font-bold text-white drop-shadow-[3px_3px_0_#7836cf]"
+        >
           Mushroom Safety Classifier
         </h1>
       </div>
-      
+
       <p class="text-2xl text-[#69c7c7] font-semibold mb-4">
         Machine Learning Classification for Mycological Safety
       </p>
-      
+
       <p class="text-lg text-gray-300 max-w-3xl mb-8">
-        Supervised learning model for accurate mushroom species classification and safety assessment, 
-        implementing advanced feature engineering techniques for interpretable binary classification.
+        Supervised learning model for accurate mushroom species classification
+        and safety assessment, implementing advanced feature engineering
+        techniques for interpretable binary classification.
       </p>
 
       <div class="flex gap-4 flex-wrap">
@@ -39,10 +47,11 @@ import { HiBeaker, HiChartBar, HiCog } from "react-icons/hi";
           View on GitHub
         </a>
         <a
-          href="#"
+          href="https://tusmm-my.sharepoint.com/:v:/g/personal/a00321687_student_tus_ie/IQAGIXd0c7JFS6vCB_qdRPyjAaym1sn9TbgprS5qlBR-dos?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=8801nY"
+          target="_blank"
           class="px-6 py-3 bg-gray-800 text-white font-bold rounded-full hover:bg-gray-700 drop-shadow-[3px_3px_0_#7836cf] transition-all active:translate-y-0.5 active:drop-shadow-none"
         >
-          Live Demo (Coming Soon)
+          Live Demo
         </a>
       </div>
     </div>
@@ -51,73 +60,101 @@ import { HiBeaker, HiChartBar, HiCog } from "react-icons/hi";
   <!-- Technical Approach Section -->
   <section class="bg-gray-900 px-6 py-16">
     <div class="mx-auto max-w-5xl">
-      <h2 class="text-4xl font-bold text-white mb-12 text-center drop-shadow-[2px_2px_0_#7836cf]">
+      <h2
+        class="text-4xl font-bold text-white mb-12 text-center drop-shadow-[2px_2px_0_#7836cf]"
+      >
         Technical Approach
       </h2>
 
       <div class="grid md:grid-cols-3 gap-8">
         <!-- Feature Engineering -->
-        <div class="bg-gray-800/50 p-8 rounded-xl border border-[#69c7c7]/20 hover:border-[#69c7c7]/50 transition-all">
+        <div
+          class="bg-gray-800/50 p-8 rounded-xl border border-[#69c7c7]/20 hover:border-[#69c7c7]/50 transition-all"
+        >
           <div class="flex items-center gap-3 mb-4">
-            <div class="w-12 h-12 bg-[#69c7c7]/10 rounded-full flex items-center justify-center">
+            <div
+              class="w-12 h-12 bg-[#69c7c7]/10 rounded-full flex items-center justify-center"
+            >
               <HiCog className="text-[#69c7c7]" size={24} />
             </div>
             <h3 class="text-xl font-bold text-white">Feature Engineering</h3>
           </div>
           <p class="text-gray-300 mb-4">
-            Implemented One-Hot Encoding to transform categorical mushroom attributes 
-            (cap shape, color, gill attachment) into numerical vectors for ML processing.
+            Implemented One-Hot Encoding to transform categorical mushroom
+            attributes (cap shape, color, gill attachment) into numerical
+            vectors for ML processing.
           </p>
           <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 bg-[#69c7c7]/10 text-[#69c7c7] text-xs font-bold rounded-full border border-[#69c7c7]/20">
+            <span
+              class="px-3 py-1 bg-[#69c7c7]/10 text-[#69c7c7] text-xs font-bold rounded-full border border-[#69c7c7]/20"
+            >
               One-Hot Encoding
             </span>
-            <span class="px-3 py-1 bg-[#69c7c7]/10 text-[#69c7c7] text-xs font-bold rounded-full border border-[#69c7c7]/20">
+            <span
+              class="px-3 py-1 bg-[#69c7c7]/10 text-[#69c7c7] text-xs font-bold rounded-full border border-[#69c7c7]/20"
+            >
               Pandas
             </span>
           </div>
         </div>
 
         <!-- Model Selection -->
-        <div class="bg-gray-800/50 p-8 rounded-xl border border-[#69c7c7]/20 hover:border-[#69c7c7]/50 transition-all">
+        <div
+          class="bg-gray-800/50 p-8 rounded-xl border border-[#69c7c7]/20 hover:border-[#69c7c7]/50 transition-all"
+        >
           <div class="flex items-center gap-3 mb-4">
-            <div class="w-12 h-12 bg-[#69c7c7]/10 rounded-full flex items-center justify-center">
+            <div
+              class="w-12 h-12 bg-[#69c7c7]/10 rounded-full flex items-center justify-center"
+            >
               <HiChartBar className="text-[#69c7c7]" size={24} />
             </div>
             <h3 class="text-xl font-bold text-white">Decision Trees</h3>
           </div>
           <p class="text-gray-300 mb-4">
-            Utilized DecisionTreeClassifier from Scikit-learn for interpretable 
-            binary classification (poisonous vs. safe), enabling visual inspection 
-            of decision paths.
+            Utilized DecisionTreeClassifier from Scikit-learn for interpretable
+            binary classification (poisonous vs. safe), enabling visual
+            inspection of decision paths.
           </p>
           <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 bg-[#69c7c7]/10 text-[#69c7c7] text-xs font-bold rounded-full border border-[#69c7c7]/20">
+            <span
+              class="px-3 py-1 bg-[#69c7c7]/10 text-[#69c7c7] text-xs font-bold rounded-full border border-[#69c7c7]/20"
+            >
               Scikit-Learn
             </span>
-            <span class="px-3 py-1 bg-[#69c7c7]/10 text-[#69c7c7] text-xs font-bold rounded-full border border-[#69c7c7]/20">
+            <span
+              class="px-3 py-1 bg-[#69c7c7]/10 text-[#69c7c7] text-xs font-bold rounded-full border border-[#69c7c7]/20"
+            >
               Supervised Learning
             </span>
           </div>
         </div>
 
         <!-- Validation -->
-        <div class="bg-gray-800/50 p-8 rounded-xl border border-[#69c7c7]/20 hover:border-[#69c7c7]/50 transition-all">
+        <div
+          class="bg-gray-800/50 p-8 rounded-xl border border-[#69c7c7]/20 hover:border-[#69c7c7]/50 transition-all"
+        >
           <div class="flex items-center gap-3 mb-4">
-            <div class="w-12 h-12 bg-[#69c7c7]/10 rounded-full flex items-center justify-center">
+            <div
+              class="w-12 h-12 bg-[#69c7c7]/10 rounded-full flex items-center justify-center"
+            >
               <HiBeaker className="text-[#69c7c7]" size={24} />
             </div>
             <h3 class="text-xl font-bold text-white">Model Evaluation</h3>
           </div>
           <p class="text-gray-300 mb-4">
-            Rigorous testing using train/test splits and cross-validation to ensure 
-            high accuracy and generalization on unseen mushroom specimens.
+            Rigorous testing using train/test splits and cross-validation to
+            ensure high accuracy and generalization on unseen mushroom
+            specimens.
           </p>
           <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 bg-[#69c7c7]/10 text-[#69c7c7] text-xs font-bold rounded-full border border-[#69c7c7]/20">
+            <span
+              class="px-3 py-1 bg-[#69c7c7]/10 text-[#69c7c7] text-xs font-bold rounded-full border border-[#69c7c7]/20"
+            >
               Cross-Validation
             </span>
-            <span class="px-3 py-1 bg-[#69c7c7]/10 text-[#69c7c7] text-xs font-bold rounded-full border border-[#69c7c7]/20">
+            <span
+              class="px-3 py-1 bg-[#69c7c7]/10 text-[#69c7c7] text-xs font-bold rounded-full border border-[#69c7c7]/20"
+            >
               Python
             </span>
           </div>
@@ -129,28 +166,40 @@ import { HiBeaker, HiChartBar, HiCog } from "react-icons/hi";
   <!-- Key Features Section -->
   <section class="bg-gray-950 px-6 py-16">
     <div class="mx-auto max-w-5xl">
-      <h2 class="text-4xl font-bold text-white mb-12 text-center drop-shadow-[2px_2px_0_#7836cf]">
+      <h2
+        class="text-4xl font-bold text-white mb-12 text-center drop-shadow-[2px_2px_0_#7836cf]"
+      >
         Why This Matters
       </h2>
 
       <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-gray-900 p-8 rounded-2xl border border-white/5 drop-shadow-[4px_4px_0_#69c7c7]">
-          <h3 class="text-2xl font-bold text-white mb-3 flex items-center gap-3">
+        <div
+          class="bg-gray-900 p-8 rounded-2xl border border-white/5 drop-shadow-[4px_4px_0_#69c7c7]"
+        >
+          <h3
+            class="text-2xl font-bold text-white mb-3 flex items-center gap-3"
+          >
             <span class="text-[#69c7c7]">01</span> Interpretable AI
           </h3>
           <p class="text-gray-300">
-            Unlike black-box models, decision trees provide clear decision paths, 
-            making the classification process transparent and debuggable—crucial for safety-critical applications.
+            Unlike black-box models, decision trees provide clear decision
+            paths, making the classification process transparent and
+            debuggable—crucial for safety-critical applications.
           </p>
         </div>
 
-        <div class="bg-gray-900 p-8 rounded-2xl border border-white/5 drop-shadow-[4px_4px_0_#69c7c7]">
-          <h3 class="text-2xl font-bold text-white mb-3 flex items-center gap-3">
+        <div
+          class="bg-gray-900 p-8 rounded-2xl border border-white/5 drop-shadow-[4px_4px_0_#69c7c7]"
+        >
+          <h3
+            class="text-2xl font-bold text-white mb-3 flex items-center gap-3"
+          >
             <span class="text-[#69c7c7]">02</span> Real-World Impact
           </h3>
           <p class="text-gray-300">
-            Demonstrates ML's potential in public health and safety domains, where accurate 
-            classification can prevent poisoning incidents and inform foragers.
+            Demonstrates ML's potential in public health and safety domains,
+            where accurate classification can prevent poisoning incidents and
+            inform foragers.
           </p>
         </div>
       </div>
@@ -158,7 +207,8 @@ import { HiBeaker, HiChartBar, HiCog } from "react-icons/hi";
       <!-- Code Sample -->
       <div class="mt-12 bg-gray-900 p-8 rounded-2xl border border-white/5">
         <h3 class="text-xl font-bold text-white mb-4">Sample Implementation</h3>
-        <pre class="bg-gray-950 p-4 rounded-lg overflow-x-auto text-sm text-gray-300"><code>from sklearn.tree import DecisionTreeClassifier
+        <pre
+          class="bg-gray-950 p-4 rounded-lg overflow-x-auto text-sm text-gray-300"><code>from sklearn.tree import DecisionTreeClassifier
 from sklearn.preprocessing import OneHotEncoder
 import pandas as pd
 
@@ -179,16 +229,27 @@ prediction = clf.predict(new_mushroom_sample)</code></pre>
   <!-- Tech Stack Section -->
   <section class="bg-gray-900 px-6 py-16">
     <div class="mx-auto max-w-5xl">
-      <h2 class="text-4xl font-bold text-white mb-12 text-center drop-shadow-[2px_2px_0_#7836cf]">
+      <h2
+        class="text-4xl font-bold text-white mb-12 text-center drop-shadow-[2px_2px_0_#7836cf]"
+      >
         Technology Stack
       </h2>
 
       <div class="flex flex-wrap justify-center gap-4">
-        {["Python", "Scikit-Learn", "Pandas", "One-Hot Encoding", "Decision Trees", "Supervised Learning"].map((tech) => (
-          <span class="px-6 py-3 bg-gray-800 text-[#69c7c7] font-bold rounded-full border border-[#69c7c7]/30 hover:border-[#69c7c7] transition-all drop-shadow-[2px_2px_0_#7836cf]">
-            {tech}
-          </span>
-        ))}
+        {
+          [
+            "Python",
+            "Scikit-Learn",
+            "Pandas",
+            "One-Hot Encoding",
+            "Decision Trees",
+            "Supervised Learning",
+          ].map((tech) => (
+            <span class="px-6 py-3 bg-gray-800 text-[#69c7c7] font-bold rounded-full border border-[#69c7c7]/30 hover:border-[#69c7c7] transition-all drop-shadow-[2px_2px_0_#7836cf]">
+              {tech}
+            </span>
+          ))
+        }
       </div>
     </div>
   </section>

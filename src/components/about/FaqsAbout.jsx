@@ -41,7 +41,7 @@ const SkillsList = () => {
       "My core expertise lies in Python and Java, driven by a specific focus on AI/ML frameworks like TensorFlow and LangChain. I specialise in building scalable, containerized cloud solutions using Docker and modern Cloud methodologies.",
     ],
     "Professional Experience": [
-      "I am an incoming AI Innovation Engineer Intern at Hewlett Packard Enterprise (Jan 2026). Currently, I serve as the Chair of the TUS RUN-EU Student Council and am a member of the TUS Student Council.",
+      "I am an AI Innovation Engineer Intern at Hewlett Packard Enterprise in Galway (Jan 2026 - Present). Currently, I also serve as the Chair of the TUS RUN-EU Student Council and am a member of the TUS Student Council.",
     ],
     "Educational Background": [
       "I am pursuing a BSc in Software Engineering with Artificial Intelligence for Cloud Computing at TUS (2023–2027) with an expected Grade of 2.1+.",

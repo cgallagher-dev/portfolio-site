@@ -1,8 +1,8 @@
 export const jobs = [
   {
-    title: "AI Innovation Engineer Intern - Hewlett Packard Enterprise",
+    title: "AI Innovation Engineer Intern - Hewlett Packard Enterprise (Galway)",
     shortTitle: "AI Innovation Engineer Intern (HPE)",
-    time: ["Jan 2026 - Aug 2026 (Upcoming)"],
+    time: ["Jan 2026 - Aug 2026"],
     description:
       "Focused on edge AI deployment, innovation engineering, and research into high impact AI applications.",
     list: [
