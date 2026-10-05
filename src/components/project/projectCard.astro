@@ -17,7 +17,12 @@ const { title, label, summary, outcome, stack, status, code, detailPage } =
 ---
 
 <article
-  class="flex h-full flex-col rounded-lg border border-line bg-surface p-6 transition-colors hover:border-muted/50"
+  class:list={[
+    "flex h-full flex-col rounded-lg border border-line bg-surface p-6 transition",
+    detailPage
+      ? "group/card relative hover:border-primary/60 hover:shadow-[0_0_24px_-6px_rgba(92,200,168,0.45)] has-[a:focus-visible]:border-primary/60"
+      : "hover:border-muted/50",
+  ]}
 >
   <div class="flex items-center justify-between gap-4">
     <p class="font-mono text-xs text-muted">{label}</p>
@@ -50,10 +55,10 @@ const { title, label, summary, outcome, stack, status, code, detailPage } =
         {detailPage && (
           <a
             href={detailPage}
-            class="group inline-flex items-center gap-1 text-fg hover:text-primary"
+            class="inline-flex items-center gap-1 text-fg group-hover/card:text-primary after:absolute after:inset-0 after:rounded-lg after:content-['']"
           >
             Read more<span class="sr-only"> about {title}</span>
-            <HiArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            <HiArrowRight className="h-4 w-4 transition-transform group-hover/card:translate-x-0.5" />
           </a>
         )}
         {code && (
@@ -61,7 +66,7 @@ const { title, label, summary, outcome, stack, status, code, detailPage } =
             href={code}
             target="_blank"
             rel="noopener noreferrer"
-            class="group inline-flex items-center gap-1 text-fg hover:text-primary"
+            class="relative z-10 inline-flex items-center gap-1 text-fg hover:text-primary"
           >
             Code<span class="sr-only"> for {title} on GitHub</span>
             <HiArrowUpRight className="h-4 w-4" />
