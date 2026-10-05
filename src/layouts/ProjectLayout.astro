@@ -64,17 +64,18 @@ const { title, label, intro, description, stack, links = [] } = Astro.props;
   .project-body h2 {
     @apply text-xl font-semibold text-fg;
   }
-  .project-body p,
-  .project-body li {
+  .project-body section > p,
+  .project-body section > ol > li,
+  .project-body section > ul > li {
     @apply leading-relaxed text-muted;
   }
   .project-body h2 + * {
     @apply mt-4;
   }
-  .project-body ol {
+  .project-body section > ol {
     @apply list-decimal space-y-3 pl-5 marker:font-mono marker:text-primary;
   }
-  .project-body ul {
+  .project-body section > ul {
     @apply list-disc space-y-3 pl-5 marker:text-line;
   }
   .project-body strong {

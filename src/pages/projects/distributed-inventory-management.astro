@@ -1,13 +1,14 @@
 ---
 import ProjectLayout from "../../layouts/ProjectLayout.astro";
+import Diagram from "../../components/project/diagram.astro";
 ---
 
 <ProjectLayout
   title="distributed-inventory-manager"
-  label="Coursework"
-  description="An inventory system refactored into a clean MVC structure with automated testing and CI."
-  intro="An inventory management system from a group project, which I refactored into a clean Model-View-Controller structure in Python and backed with automated tests and a CI pipeline."
-  stack={["Python", "Pytest", "Jenkins", "SonarQube"]}
+  label="Coursework, team project"
+  description="A team-built CLI inventory and sales tool, run as an Agile project with Jira, Confluence and a Jenkins CI pipeline."
+  intro="A command-line inventory and sales tool for a liquor store, built by a student team for our Software Engineering module. The code mattered, but the module was really about running a proper Agile project with CI/CD from start to finish."
+  stack={["Python", "SQLite", "Pytest", "Jenkins", "SonarQube", "Jira", "Confluence"]}
   links={[
     {
       label: "Code",
@@ -20,38 +21,85 @@ import ProjectLayout from "../../layouts/ProjectLayout.astro";
   ]}
 >
   <section>
-    <h2>Structure</h2>
+    <h2>Architecture</h2>
+    <Diagram
+      caption="The CLI only talks to the feature modules, and only the database manager touches SQLite."
+      steps={[
+        {
+          label: "Interface",
+          nodes: [
+            { title: "CLI menus (app.py)", detail: "Separate manager and clerk menus, dashboard on login" },
+            { title: "Login (auth.py)", detail: "Role-based access, bcrypt-hashed passwords" },
+          ],
+        },
+        {
+          label: "Feature modules",
+          nodes: [
+            { title: "Products", detail: "Add, update, search" },
+            { title: "Inventory", detail: "Receive stock, log losses" },
+            { title: "Sales", detail: "Record sales, receipts, history" },
+            { title: "Reporting", detail: "Low stock, value, CSV/JSON export" },
+          ],
+        },
+        {
+          label: "Data",
+          nodes: [{ title: "Database manager", detail: "All SQL in one place, backed by SQLite" }],
+        },
+      ]}
+    />
+  </section>
+
+  <section>
+    <h2>CI pipeline</h2>
+    <Diagram
+      direction="across"
+      caption="Jenkins runs every stage on each change. SonarCloud reads the coverage and Pylint reports from the earlier stages."
+      steps={[
+        { nodes: [{ title: "Checkout", detail: "Pull from GitHub" }] },
+        { nodes: [{ title: "Set up", detail: "Virtual env and dependencies" }] },
+        { nodes: [{ title: "Lint", detail: "Pylint report" }] },
+        { nodes: [{ title: "Test", detail: "Pytest with coverage" }] },
+        { nodes: [{ title: "Analyse", detail: "SonarCloud quality gate" }] },
+      ]}
+    />
+  </section>
+
+  <section>
+    <h2>How we ran it</h2>
     <ul>
       <li>
-        <strong>Model</strong> holds the data and business rules, including
-        validation, and knows nothing about the interface.
+        <strong>Jira</strong> held the backlog. We broke the work into epics and
+        user stories, planned it in sprints, and tracked it on the board.
       </li>
       <li>
-        <strong>View</strong> takes input and displays results, so the
-        interface can change without touching the logic.
+        <strong>Confluence</strong> held the project overview, the architecture
+        and design document, and the requirements package.
       </li>
       <li>
-        <strong>Controller</strong> sits between the two, routing input to the
-        right logic and choosing what to show next.
+        <strong>Jenkins</strong> ran the tests and coverage on every change, and
+        <strong>SonarCloud</strong> checked the code quality before anything was
+        merged.
       </li>
     </ul>
   </section>
 
   <section>
-    <h2>Testing and CI</h2>
+    <h2>What the tool does</h2>
     <p>
-      Pytest covers the model and controller with unit and integration tests.
-      A Jenkins pipeline runs the tests on every change, and SonarQube checks
-      the code for bugs and smells before it is merged.
+      Managers and clerks log in with their own roles, with passwords hashed
+      using bcrypt. Managers add and update products, check low-stock and
+      inventory value reports, and export them to CSV or JSON. Clerks record
+      sales and print receipts, take in new stock, and log losses. Everything
+      runs in a colour-coded command-line menu backed by SQLite.
     </p>
   </section>
 
   <section>
-    <h2>What I took from it</h2>
+    <h2>Testing</h2>
     <p>
-      Splitting the logic out of the interface made the code much easier to
-      test, and having the pipeline in place meant I could refactor without
-      worrying about breaking things quietly.
+      Each module has its own Pytest suite with coverage reporting, and Pylint
+      runs as part of the pipeline, so a failing test or a drop in quality
+      showed up straight away.
     </p>
   </section>
 </ProjectLayout>

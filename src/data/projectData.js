@@ -67,10 +67,12 @@ export const projects = [
   {
     title: "distributed-inventory-manager",
     kind: "personal",
-    label: "Coursework",
+    label: "Coursework, team project",
     summary:
-      "An inventory system from a group project that I refactored into a cleaner MVC structure. I added tests and a CI pipeline that checks the code on every change.",
-    stack: ["Python", "Pytest", "Jenkins", "SonarQube"],
+      "A command-line inventory and sales tool for a liquor store, built as a team over several sprints. Managers and clerks log in with their own roles to manage stock, record sales and export reports.",
+    outcome:
+      "The real focus was the process: user stories and epics in Jira, design docs in Confluence, and a Jenkins pipeline running tests and SonarQube analysis on every change.",
+    stack: ["Python", "SQLite", "Pytest", "Jenkins", "SonarQube", "Jira", "Confluence"],
     code: "https://github.com/cgallagher-dev/distributed-inventory-manager-project",
     detailPage: "/projects/distributed-inventory-management",
   },
@@ -80,7 +82,7 @@ export const projects = [
     label: "Coursework",
     summary:
       "A model that predicts whether a mushroom is safe to eat. I used a decision tree so you can follow exactly why it made each call.",
-    stack: ["Python", "scikit-learn", "Pandas"],
+    stack: ["Python", "scikit-learn", "Pandas", "PyQt5"],
     code: "https://github.com/cgallagher-dev/mushroom-classifier",
     detailPage: "/projects/mushroom-classifier",
   },

@@ -1,13 +1,14 @@
 ---
 import ProjectLayout from "../../layouts/ProjectLayout.astro";
+import Diagram from "../../components/project/diagram.astro";
 ---
 
 <ProjectLayout
   title="mushroom-classifier"
   label="Coursework"
-  description="A decision tree classifier that predicts whether a mushroom is edible."
-  intro="A supervised learning model that predicts whether a mushroom is edible or poisonous from its physical features, using a decision tree so every prediction can be traced back to the features behind it."
-  stack={["Python", "scikit-learn", "Pandas"]}
+  description="A desktop app that uses a decision tree to predict whether a mushroom is edible."
+  intro="A desktop app that predicts whether a mushroom is edible or poisonous from its physical features. It uses a decision tree, so you can follow why it made each call, and shows the model's accuracy and most important features alongside the result."
+  stack={["Python", "scikit-learn", "Pandas", "PyQt5", "Matplotlib"]}
   links={[
     { label: "Code", href: "https://github.com/cgallagher-dev/mushroom-classifier" },
     {
@@ -17,20 +18,50 @@ import ProjectLayout from "../../layouts/ProjectLayout.astro";
   ]}
 >
   <section>
+    <h2>Architecture</h2>
+    <Diagram
+      caption="The window never touches the data directly. It asks the model class for options, predictions and stats."
+      steps={[
+        {
+          label: "Desktop UI (main_window.py)",
+          nodes: [
+            { title: "Classifier panel", detail: "Dropdowns for each feature and a Classify button" },
+            { title: "Dashboard panel", detail: "Accuracy and a Matplotlib chart of top features" },
+          ],
+        },
+        {
+          label: "Model (mushroom_model.py)",
+          nodes: [
+            { title: "Encode", detail: "One-hot encoding with pd.get_dummies" },
+            { title: "Train", detail: "75/25 split, DecisionTreeClassifier" },
+            { title: "Predict", detail: "Re-encode input to match training columns" },
+          ],
+        },
+        {
+          label: "Data",
+          nodes: [{ title: "mushroom.csv", detail: "Categorical features, edible or poisonous label" }],
+        },
+      ]}
+    />
+  </section>
+
+  <section>
     <h2>Approach</h2>
     <ol>
       <li>
-        <strong>Feature encoding.</strong> The features (cap shape, colour,
-        gill attachment and so on) are all categorical, so I one-hot encoded
-        them with Pandas and scikit-learn.
+        <strong>Encoding.</strong> Every feature (cap shape, colour, gill
+        attachment and so on) is categorical, so I one-hot encoded them with
+        Pandas and saved the column list for later.
       </li>
       <li>
-        <strong>Model.</strong> A <code>DecisionTreeClassifier</code> with a
-        capped depth, so the tree stays small enough to read.
+        <strong>Training.</strong> A 75/25 train/test split and a
+        <code>DecisionTreeClassifier</code>, scored on accuracy against the
+        held-out set.
       </li>
       <li>
-        <strong>Evaluation.</strong> Train/test splits and cross-validation to
-        check it holds up on mushrooms it hasn't seen.
+        <strong>Prediction.</strong> The user's choices are encoded the same
+        way and reindexed to the saved columns, so a single mushroom lines up
+        with what the model was trained on.
       </li>
     </ol>
   </section>
@@ -39,23 +70,27 @@ import ProjectLayout from "../../layouts/ProjectLayout.astro";
     <h2>Why a decision tree</h2>
     <p>
       When the cost of a wrong answer is someone getting poisoned, you want to
-      be able to see why the model said "safe". A decision tree gives a clear
-      path for each prediction, which a black-box model wouldn't.
+      be able to see why the model said "edible". A decision tree gives a
+      clear path for each prediction, and its feature importances feed the
+      chart on the dashboard.
     </p>
   </section>
 
   <section>
     <h2>Core of the model</h2>
     <pre
-      class="overflow-x-auto rounded-lg border border-line bg-surface p-5 font-mono text-sm leading-relaxed text-fg"><code>{`from sklearn.preprocessing import OneHotEncoder
-from sklearn.tree import DecisionTreeClassifier
+      class="overflow-x-auto rounded-lg border border-line bg-surface p-5 font-mono text-sm leading-relaxed text-fg"><code>{`X_encoded = pd.get_dummies(X)
+self.encoded_columns = X_encoded.columns.tolist()
 
-encoder = OneHotEncoder()
-X_encoded = encoder.fit_transform(mushroom_features)
+X_train, X_test, y_train, y_test = train_test_split(
+    X_encoded, y, random_state=42, test_size=0.25
+)
+self.tree = DecisionTreeClassifier()
+self.tree.fit(X_train, y_train)
 
-clf = DecisionTreeClassifier(max_depth=5)
-clf.fit(X_encoded, y_labels)
-
-prediction = clf.predict(encoder.transform(new_sample))`}</code></pre>
+# Single prediction: encode, then align to the training columns
+input_encoded = pd.get_dummies(pd.DataFrame([user_input]))
+input_reindexed = input_encoded.reindex(columns=self.encoded_columns, fill_value=0)
+prediction = self.tree.predict(input_reindexed)`}</code></pre>
   </section>
 </ProjectLayout>
