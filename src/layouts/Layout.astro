@@ -1,7 +1,49 @@
 ---
+import "@fontsource/ibm-plex-sans/400.css";
+import "@fontsource/ibm-plex-sans/500.css";
+import "@fontsource/ibm-plex-sans/600.css";
+import "@fontsource/ibm-plex-mono/400.css";
 import "../styles/global.css";
+import { getImage } from "astro:assets";
 import Navbar from "../components/commons/navbar/navbar.astro";
 import Footer from "../components/commons/footer/footer.astro";
+import headshot from "../assets/img/headshot.png";
+
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description = "Charlie Gallagher is a software engineer building AI agents and cloud tooling at Hewlett Packard Enterprise, and a final-year software student at TUS.",
+  noindex = false,
+} = Astro.props;
+
+const pageTitle = title
+  ? `${title} | Charlie Gallagher`
+  : "Charlie Gallagher | Software Engineer, AI & Cloud";
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = await getImage({ src: headshot, width: 600, format: "jpg" });
+const ogImageUrl = new URL(ogImage.src, Astro.site);
+
+const person = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Charlie Gallagher",
+  url: Astro.site?.toString(),
+  jobTitle: "Innovation Engineer, AI & Cloud",
+  worksFor: { "@type": "Organization", name: "Hewlett Packard Enterprise" },
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "Technological University of the Shannon",
+  },
+  sameAs: [
+    "https://www.linkedin.com/in/charliegallagher2004/",
+    "https://github.com/cgallagher-dev",
+  ],
+};
 ---
 
 <!doctype html>
@@ -10,12 +52,34 @@ import Footer from "../components/commons/footer/footer.astro";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="generator" content={Astro.generator} />
-    <title>Charlie Gallagher | AI Innovation Engineer</title>
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Charlie Gallagher" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta name="twitter:card" content="summary" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(person)} />
   </head>
-  <body class="bg-gray-950 text-white overflow-x-hidden">
+  <body class="overflow-x-hidden">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:rounded-md focus:bg-fg focus:px-4 focus:py-2 focus:text-canvas"
+    >
+      Skip to content
+    </a>
     <Navbar />
-    <slot />
+    <main id="main">
+      <slot />
+    </main>
     <Footer />
   </body>
 </html>

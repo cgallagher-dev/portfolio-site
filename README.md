@@ -1,48 +1,34 @@
 # Charlie Gallagher - Personal Portfolio
 
-Welcome to the repository for my personal portfolio website, [cgallagher.dev](https://cgallagher.dev).
+Source for my portfolio site, [cgallagher.dev](https://cgallagher.dev).
 
-This site is a showcase of my projects, experience, and technical background as a Software Engineering student and AI Innovation Engineer.
+## Built with
 
-## 🚀 Built With
+- [Astro](https://astro.build/) for static site generation
+- [React](https://react.dev/) for the few interactive pieces (typewriter, copy email button)
+- [Tailwind CSS](https://tailwindcss.com/) v4, with the colour and font tokens in `src/styles/global.css`
+- IBM Plex Sans and Mono, self-hosted through Fontsource
 
-- **[Astro](https://astro.build/)** - For high performance and static site generation.
-- **[React](https://reactjs.org/)** - For interactive UI components.
-- **[Tailwind CSS](https://tailwindcss.com/)** - For responsive and modern styling.
-- **TypeScript** - For type-safe code.
+## Running locally
 
-## 🛠️ Getting Started
-
-To run this project locally:
-
-1.  **Clone the repo**
-    ```bash
-    git clone https://github.com/cgallagher-dev/portfolio-site.git
-    cd portfolio-site
-    ```
-
-2.  **Install dependencies**
-    ```bash
-    npm install
-    ```
-
-3.  **Run the development server**
-    ```bash
-    npm run dev
-    ```
-
-## 📂 Project Structure
-
-```text
-/
-├── public/       # Static assets
-├── src/
-│   ├── components/  # Reusable React & Astro components
-│   ├── layouts/     # Page layouts
-│   ├── pages/       # Route definitions
-│   └── data/        # Content data (projects, experience)
-└── astro.config.mjs
+```bash
+git clone https://github.com/cgallagher-dev/portfolio-site.git
+cd portfolio-site
+npm install
+npm run dev
 ```
 
----
-*Built by Charlie Gallagher*
+`npm run build` outputs the static site to `dist/`. Pushing to `main` deploys to GitHub Pages through `.github/workflows/deploy.yml`.
+
+## Structure
+
+```text
+src/
+├── components/   Astro and React components, grouped by page
+├── data/         Projects, experience and recognition content
+├── layouts/      Base layout and the project detail layout
+├── pages/        Routes
+└── styles/       Global styles and design tokens
+```
+
+Most content changes only need an edit in `src/data/`.

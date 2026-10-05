@@ -1,0 +1,73 @@
+<section id="leadership" class="mx-auto max-w-5xl px-6 py-20">
+  <p class="font-mono text-sm text-primary">Leadership</p>
+  <h2 class="mt-2 text-3xl font-semibold tracking-tight text-fg">
+    Chair, RUN-EU Student Council
+  </h2>
+  <p class="mt-3 max-w-2xl text-muted">
+    RUN-EU is a European university alliance. As chair of its student council I
+    represent students across the partner universities in how the alliance is
+    run.
+  </p>
+
+  <dl class="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-line bg-line">
+    <div class="bg-canvas p-6">
+      <dt class="text-sm text-muted">Students represented</dt>
+      <dd class="mt-1 text-3xl font-semibold text-fg">
+        <span class="counter" data-target="15000" data-suffix="+">15,000+</span>
+      </dd>
+    </div>
+    <div class="bg-canvas p-6">
+      <dt class="text-sm text-muted">Partner universities</dt>
+      <dd class="mt-1 text-3xl font-semibold text-fg">
+        <span class="counter" data-target="9">9</span>
+      </dd>
+    </div>
+  </dl>
+
+  <ul class="mt-8 list-disc space-y-2 pl-5 text-muted marker:text-line">
+    <li>Bring student views to the alliance's Board of Rectors.</li>
+    <li>Help shape international programmes, including the Short Advanced Programmes and work towards European degrees.</li>
+    <li>Run meetings and public sessions with student representatives from across Europe.</li>
+  </ul>
+</section>
+
+<script>
+  const counters = document.querySelectorAll<HTMLElement>(".counter");
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const counter = entry.target as HTMLElement;
+        observer.unobserve(counter);
+
+        const target = Number(counter.dataset.target);
+        const suffix = counter.dataset.suffix ?? "";
+        const duration = 1500;
+        const start = performance.now();
+
+        const tick = (now: number) => {
+          const progress = Math.min((now - start) / duration, 1);
+          // Ease out so the count slows down as it lands
+          const value = Math.round(target * (1 - Math.pow(1 - progress, 3)));
+          counter.textContent =
+            value.toLocaleString("en-IE") + (progress === 1 ? suffix : "");
+          if (progress < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      });
+    },
+    { threshold: 0.5 },
+  );
+
+  // Text already holds the final value, so reduced-motion users just keep it
+  if (!reduceMotion) {
+    counters.forEach((counter) => {
+      counter.textContent = "0";
+      observer.observe(counter);
+    });
+  }
+</script>

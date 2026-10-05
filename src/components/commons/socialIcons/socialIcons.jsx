@@ -5,25 +5,25 @@ import {
 
 const SocialIcons = () => {
   return (
-    <div className="my-5 flex items-center justify-center">
+    <div className="flex items-center gap-4">
       <a
         href="https://www.linkedin.com/in/charliegallagher2004/"
         target="_blank"
         rel="noopener noreferrer"
-        className="mr-3 text-zinc-400 hover:text-[#0debd8] drop-shadow-[1px_1px_0_#7836cf]"
-        aria-label="Linkedin"
+        className="text-muted transition-colors hover:text-fg"
+        aria-label="LinkedIn"
       >
-        <FaLinkedinIn className="h-7 w-7" />
+        <FaLinkedinIn className="h-5 w-5" />
       </a>
 
       <a
         href="https://github.com/cgallagher-dev"
         target="_blank"
         rel="noopener noreferrer"
-        className="mx-3 text-zinc-400 hover:text-[#0debd8] drop-shadow-[1px_1px_0_#7836cf]"
-        aria-label="Github"
+        className="text-muted transition-colors hover:text-fg"
+        aria-label="GitHub"
       >
-        <FaGithub className="h-7 w-7" />
+        <FaGithub className="h-5 w-5" />
       </a>
     </div>
   );

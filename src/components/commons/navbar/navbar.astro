@@ -1,108 +1,88 @@
 ---
 import { FiMenu, FiX } from "react-icons/fi";
-import NotificationBell from "./notificationBell.jsx";
-import { FaLinkedinIn, FaGithub } from "react-icons/fa6";
+import SocialIcons from "../socialIcons/socialIcons.jsx";
 
 const links = [
   { name: "Home", href: "/" },
   { name: "Projects", href: "/projects" },
-  { name: "About Me", href: "/about" },
+  { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
+
+const currentPath = Astro.url.pathname.replace(/\/$/, "");
+const isActive = (href: string) =>
+  href === "/"
+    ? currentPath === ""
+    : currentPath === href || currentPath.startsWith(`${href}/`);
 ---
 
-<nav class="relative">
-  <!-- Input control (peer) -->
-  <input id="menu-toggle" type="checkbox" class="peer hidden md:hidden" />
+<div class="relative">
+  <input id="menu-toggle" type="checkbox" class="peer hidden" />
 
-  <!-- Navbar -->
   <nav
-    class="fixed top-0 left-0 w-full z-50 bg-gray-950/20 backdrop-blur-md border-b border-white/10"
+    class="fixed top-0 left-0 z-50 w-full border-b border-line bg-canvas/85 backdrop-blur"
+    aria-label="Main"
   >
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <!-- Logo -->
-      <a href="/" class="flex items-center">
-        <h3
-          class="text-[#69c7c7] text-3xl font-bold drop-shadow-[1.5px_1.5px_0_#7836cf]"
-        >
-          CJG
-        </h3>
+    <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+      <a href="/" class="font-medium tracking-tight text-fg">
+        Charlie Gallagher
       </a>
 
-      <!-- Desktop Links -->
-      <ul id="navbar-links" class="hidden md:flex items-center space-x-8">
-        {
-          links.map((link) => (
-            <li>
-              <a
-                href={link.href}
-                class="nav-link font-bold transition-colors duration-300 text-white hover:text-[#7d2dac]"
-              >
-                {link.name}
-              </a>
-            </li>
-          ))
-        }
-
-        <li class="flex items-center gap-3">
-          <NotificationBell client:visible />
-
-          <a
-            href="https://www.linkedin.com/in/charliegallagher2004/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-          >
-            <FaLinkedinIn
-              className="h-7 w-7 cursor-pointer hover:text-[#7836cf]"
-            />
-          </a>
-
-          <a
-            href="https://github.com/cgallagher-dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-          >
-            <FaGithub className="h-7 w-7 cursor-pointer hover:text-[#7836cf]" />
-          </a>
-        </li>
-      </ul>
-
-      <!-- Mobile right-side icons -->
-      <div class="flex md:hidden items-center gap-4 z-50">
-        <NotificationBell client:visible />
-        <label for="menu-toggle" class="cursor-pointer">
-          <FiMenu className="h-7 w-7 text-white peer-checked:hidden" />
-          <FiX className="h-7 w-7 text-white hidden peer-checked:block" />
-        </label>
+      <div class="hidden items-center gap-8 md:flex">
+        <ul class="flex items-center gap-8 text-sm">
+          {
+            links.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  aria-current={isActive(link.href) ? "page" : undefined}
+                  class:list={[
+                    "transition-colors hover:text-fg",
+                    isActive(link.href) ? "text-fg" : "text-muted",
+                  ]}
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <SocialIcons />
       </div>
+
+      <label for="menu-toggle" class="cursor-pointer text-fg md:hidden">
+        <span class="sr-only">Open menu</span>
+        <FiMenu className="h-6 w-6" />
+      </label>
     </div>
   </nav>
 
-  <!-- Overlay (mobile only) -->
   <label
     for="menu-toggle"
-    class="fixed inset-0 bg-black/60 hidden peer-checked:block cursor-pointer z-40 md:hidden"
+    class="fixed inset-0 z-40 hidden cursor-pointer bg-black/60 peer-checked:block md:hidden"
   ></label>
 
-  <!-- Sidebar móvil -->
   <div
-    class="fixed top-0 right-0 h-full w-64 bg-gray-900 shadow-lg transform translate-x-full transition-transform duration-300 peer-checked:translate-x-0 z-50 md:translate-x-full md:hidden"
+    class="fixed top-0 right-0 z-50 h-full w-64 translate-x-full border-l border-line bg-surface transition-transform duration-300 peer-checked:translate-x-0 md:hidden"
   >
     <div class="flex justify-end p-4">
-      <label for="menu-toggle" class="cursor-pointer">
-        <FiX className="h-7 w-7 text-white" />
+      <label for="menu-toggle" class="cursor-pointer text-fg">
+        <span class="sr-only">Close menu</span>
+        <FiX className="h-6 w-6" />
       </label>
     </div>
 
-    <ul id="navbar-links-mobile" class="flex flex-col space-y-6 mt-6 ml-6">
+    <ul class="mt-4 flex flex-col gap-6 px-6">
       {
         links.map((link) => (
           <li>
             <a
               href={link.href}
-              class="nav-link-mobile text-lg font-bold text-white hover:text-[#69c7c7] transition-colors duration-300"
+              aria-current={isActive(link.href) ? "page" : undefined}
+              class:list={[
+                "text-lg transition-colors hover:text-fg",
+                isActive(link.href) ? "text-fg" : "text-muted",
+              ]}
             >
               {link.name}
             </a>
@@ -110,47 +90,8 @@ const links = [
         ))
       }
     </ul>
+    <div class="mt-8 px-6">
+      <SocialIcons />
+    </div>
   </div>
-</nav>
-
-<script>
-  (function () {
-    function markActiveLinks() {
-      const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
-      const desktopLinks = Array.from(
-        document.querySelectorAll("#navbar-links .nav-link"),
-      );
-      const mobileLinks = Array.from(
-        document.querySelectorAll("#navbar-links-mobile .nav-link-mobile"),
-      );
-
-      const allLinks = [...desktopLinks, ...mobileLinks];
-
-      allLinks.forEach((link) => {
-        const hrefAttr = link.getAttribute("href");
-        const href = hrefAttr?.replace(/\/$/, "") || "" || "/";
-
-        if (href === currentPath) {
-          link.classList.add("text-[#7d2dac]", "font-extrabold");
-          link.classList.remove("text-white");
-        } else {
-          link.classList.remove("text-[#7d2dac]", "font-extrabold");
-          if (!link.classList.contains("hover:text-[#7d2dac]")) {
-            link.classList.add("text-white");
-          }
-        }
-      });
-    }
-
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", markActiveLinks);
-    } else {
-      markActiveLinks();
-    }
-
-    window.addEventListener("popstate", markActiveLinks);
-    document.addEventListener("astro:page-load", markActiveLinks);
-    document.addEventListener("astro:after-swap", markActiveLinks);
-    window.addEventListener("load", () => setTimeout(markActiveLinks, 50));
-  })();
-</script>
+</div>

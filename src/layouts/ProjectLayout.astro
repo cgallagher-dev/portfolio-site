@@ -1,0 +1,83 @@
+---
+import Layout from "./Layout.astro";
+
+interface Props {
+  title: string;
+  label: string;
+  intro: string;
+  description: string;
+  stack: string[];
+  links?: { label: string; href: string }[];
+}
+
+const { title, label, intro, description, stack, links = [] } = Astro.props;
+---
+
+<Layout title={title} description={description}>
+  <article class="mx-auto max-w-3xl px-6 pt-32 pb-20 md:pt-40">
+    <a href="/projects" class="text-sm text-muted transition-colors hover:text-fg">
+      &larr; All projects
+    </a>
+
+    <p class="mt-10 font-mono text-sm text-primary">{label}</p>
+    <h1 class="mt-2 text-4xl font-semibold tracking-tight text-fg md:text-5xl">
+      {title}
+    </h1>
+    <p class="mt-6 text-lg leading-relaxed text-muted">{intro}</p>
+
+    <ul class="mt-6 flex flex-wrap gap-2" aria-label="Technologies">
+      {
+        stack.map((tech) => (
+          <li class="rounded border border-line px-2 py-0.5 font-mono text-xs text-muted">
+            {tech}
+          </li>
+        ))
+      }
+    </ul>
+
+    {
+      links.length > 0 && (
+        <div class="mt-8 flex flex-wrap gap-4">
+          {links.map((link) => (
+            <a
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="rounded-md border border-line px-4 py-2 text-sm text-fg transition-colors hover:border-muted"
+            >
+              {link.label} &nearr;
+            </a>
+          ))}
+        </div>
+      )
+    }
+
+    <div class="project-body mt-14 space-y-12 border-t border-line pt-12">
+      <slot />
+    </div>
+  </article>
+</Layout>
+
+<style is:global>
+  @reference "../styles/global.css";
+
+  .project-body h2 {
+    @apply text-xl font-semibold text-fg;
+  }
+  .project-body p,
+  .project-body li {
+    @apply leading-relaxed text-muted;
+  }
+  .project-body h2 + * {
+    @apply mt-4;
+  }
+  .project-body ol {
+    @apply list-decimal space-y-3 pl-5 marker:font-mono marker:text-primary;
+  }
+  .project-body ul {
+    @apply list-disc space-y-3 pl-5 marker:text-line;
+  }
+  .project-body strong {
+    @apply font-medium text-fg;
+  }
+</style>

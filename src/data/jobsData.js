@@ -1,45 +1,45 @@
 export const jobs = [
   {
-    title: "AI Innovation Engineer Intern - Hewlett Packard Enterprise (Galway)",
-    shortTitle: "AI Innovation Engineer Intern (HPE)",
-    time: ["Jan 2026 - Aug 2026"],
-    description:
-      "Focused on edge AI deployment, innovation engineering, and research into high impact AI applications.",
-    list: [
-      "Architecting scalable AI and cloud solutions for enterprise infrastructure.",
-      "Developing high-performance machine learning pipelines for edge-to-cloud integration.",
+    org: "Hewlett Packard Enterprise",
+    team: "Hybrid Cloud & Office of the CTO, Galway",
+    roles: [
+      { title: "Innovation Engineer, AI & Cloud", time: "From June 2027" },
+      { title: "Innovation Engineer (part-time)", time: "Sep 2026 - Present" },
+      { title: "Innovation Engineering AI Intern", time: "Jan 2026 - Aug 2026" },
+    ],
+    points: [
+      "Led the architecture and backend of an AI report tool that went from an empty repo to production approval in ten weeks. It's since been productised.",
+      "Co-built a knowledge agent for a multi-agent platform using A2A, MCP and RAG. It was the innovation team's fastest proof of concept to reach the product roadmap.",
+      "Built two action agents (storage and pre-flight checks) for an agentic cloud migration platform, and worked on its frontend with teams in Ireland, India and the US, including a demo for a major industry conference.",
+      "Presented to US senior leadership and at the All-Ireland all-teams meeting, and went through HPE's mentorship programme.",
     ],
   },
   {
-    title: "Chair - RUN-EU Student Council",
-    shortTitle: "Chair - RUN-EU Council",
-    time: ["2024 - Present"],
-    description:
-      "Leading cross-disciplinary teams and international student governance across nine European countries/universities.",
-    list: [
-      "Orchestrating technical Short Advanced Programmes (SAPs) to enhance international student mobility.",
-      "Strategically representing 15,000+ students in high-level university alliance governance.",
+    org: "RUN-EU Student Council",
+    team: "European University Alliance",
+    roles: [
+      { title: "Chair", time: "2026 - Present" },
+      { title: "Council member", time: "2024 - 2026" },
+    ],
+    points: [
+      "Represent over 15,000 students from nine European universities in how the alliance is run.",
+      "Help shape the short international programmes that let students work on projects abroad.",
     ],
   },
   {
-    title: "BSc Software Engineering with Artificial Intelligence for Cloud Computing",
-    shortTitle: "BSc Software Eng (AI & Cloud)",
-    time: ["2023 - 2027"],
-    description:
-      "Technological University of the Shannon (TUS)",
-    list: [
-      "Specialising in Cloud Architecture, Neural Networks, and Enterprise AI.",
-      "On track to receive 2.1+",
+    org: "Technological University of the Shannon",
+    team: "Athlone",
+    roles: [
+      {
+        title: "BSc (Hons) Software Design with AI for Cloud Computing",
+        time: "2023 - 2027",
+      },
     ],
-  },
-  {
-    title: "Volunteer Mentor - CoderDojo",
-    shortTitle: "CoderDojo Mentor",
-    time: ["Volunteer (2020-2021)"],
-    description: "Taught programming logic and Python to young learners.",
-    list: [
-      "Fostered interest in STEM through hands-on coding mentorship.",
-      "Guided students through foundational programming concepts.",
+    points: [
+      "My final-year project is an open-source tool for testing whether small AI agents are actually safe.",
+      "Earned the AWS Certified AI Practitioner certification in July 2026.",
+      "On track for a First Class Honours (1.1).",
+      "Relevant modules: Data Mining and Machine Learning, Distributed Systems, Service-Oriented Architecture, Security, Software Development for Cloud, Software Engineering, Databases, Networks.",
     ],
   },
 ];

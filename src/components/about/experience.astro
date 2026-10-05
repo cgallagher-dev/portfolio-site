@@ -1,71 +1,47 @@
 ---
-// CSS
-import "../../styles/experiencie.css";
-
-// Data
 import { jobs } from "../../data/jobsData";
 ---
 
-<section class="site-container experience mt-16 mx-auto max-w-6xl px-4">
-  <h2
-    class="text-4xl font-bold flex flex-col items-center gap-6 text-center whitespace-nowrap text-white md:flex-row md:items-center md:text-start"
-  >
-    <span class="drop-shadow-[2px_2px_0_#7836cf]">My Experience</span>
-    <span
-      class="hidden h-1.5 grow rounded-lg drop-shadow-[2px_2px_0_#0debd8] bg-[#7836cf] md:block"
-    ></span>
+<section id="experience" class="mx-auto max-w-5xl px-6 py-20">
+  <p class="font-mono text-sm text-primary">Experience</p>
+  <h2 class="mt-2 text-3xl font-semibold tracking-tight text-fg">
+    Where I've been working
   </h2>
 
-  <section class="jobs">
-    <div class="job-title">
-      {
-        jobs.map((job, index) => (
-          <button
-            class={`headline-3 tabbutton ${index === 0 ? "active" : ""}`}
-            aria-selected={index === 0 ? "true" : "false"}
-            data-index={index}
-          >
-            {job.shortTitle || job.title}
-          </button>
-        ))
-      }
-    </div>
+  <ol class="mt-10 divide-y divide-line border-y border-line">
+    {
+      jobs.map((job) => (
+        <li class="grid gap-6 py-10 md:grid-cols-[14rem_1fr] md:gap-10">
+          <div>
+            <h3 class="font-medium text-fg">{job.org}</h3>
+            <p class="mt-1 text-sm text-muted">{job.team}</p>
+          </div>
 
-    <div class="jobs-descriptions">
-      {
-        jobs.map(({ title, time, description, list }, index) => (
-          <div
-            class={`description tabcontent ${index === 0 ? "active" : ""}`}
-            data-index={index}
-          >
-            <h2 class="flex items-center gap-3 text-2xl md:text-3xl font-bold text-white break-words">
-              {title}
-            </h2>{" "}
-            <div class="job-time">
-              {time.map((t) => (
-                <time class="headline-4 text-zinc-400 mb-1" datetime={t}>
-                  {t}
-                </time>
+          <div>
+            <ol class="space-y-3 border-l border-line pl-5">
+              {job.roles.map((role, i) => (
+                <li class="relative">
+                  <span
+                    class:list={[
+                      "absolute top-2 -left-[1.53rem] h-2 w-2 rounded-full",
+                      i === 0 ? "bg-primary" : "bg-line",
+                    ]}
+                    aria-hidden="true"
+                  />
+                  <p class="text-fg">{role.title}</p>
+                  <p class="font-mono text-xs text-muted">{role.time}</p>
+                </li>
               ))}
-            </div>
-            <p class="mb-2">{description}</p>
-            <ul class="marker:text-[#7836cf] list-disc space-y-2 pl-5">
-              {list.map((item) => (
-                <li>{item}</li>
+            </ol>
+
+            <ul class="mt-6 list-disc space-y-2 pl-5 text-sm leading-relaxed text-muted marker:text-line">
+              {job.points.map((point) => (
+                <li>{point}</li>
               ))}
             </ul>
           </div>
-        ))
-      }
-    </div>
-  </section>
-
-  <div class="side-line"></div>
+        </li>
+      ))
+    }
+  </ol>
 </section>
-
-<script>
-  import { initExperienceTabs } from "../../scripts/experienceTabs.js";
-
-  initExperienceTabs();
-  document.addEventListener("astro:after-swap", initExperienceTabs);
-</script>

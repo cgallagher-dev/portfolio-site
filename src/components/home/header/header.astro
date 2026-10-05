@@ -1,45 +1,60 @@
 ---
 import SocialIcons from "../../commons/socialIcons/socialIcons.jsx";
-import TypeEfect from "../header/typeEfect.jsx";
+import Typewriter from "./typewriter.jsx";
 ---
 
-<header class="relative h-screen bg-gray-950 overflow-hidden">
-  <div class="absolute inset-0 grid grid-cols-2">
-    <div
-      class="animate-gradientMove h-80 bg-linear-to-br from-[#982cf0] to-[#581f86] opacity-30 blur-[120px]"
+<header class="mx-auto max-w-5xl px-6 pt-36 pb-24 md:pt-48 md:pb-32">
+  <p class="font-mono text-sm text-muted">Athlone, Ireland</p>
+
+  <h1
+    class="mt-4 text-4xl font-semibold tracking-tight text-fg md:text-6xl"
+  >
+    Charlie Gallagher
+  </h1>
+
+  <Typewriter client:load />
+
+  <p class="mt-6 max-w-2xl text-lg leading-relaxed text-muted md:text-xl">
+    I build AI agents and the cloud tools around them at Hewlett Packard
+    Enterprise, and I'm in my final year of Software Design with AI for Cloud
+    Computing at TUS.
+  </p>
+
+  <ul class="mt-6 space-y-2 text-sm text-fg">
+    <li class="flex items-center gap-2">
+      <span class="h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true"
+      ></span>
+      Joining HPE full-time as an Innovation Engineer (AI &amp; Cloud) in June
+      2027
+    </li>
+    <li class="flex items-center gap-2">
+      <img src="/svg/aws.svg" alt="" width="16" height="16" class="h-4 w-4 shrink-0" />
+      <a
+        href="https://www.credly.com/badges/8222cd26-aa4e-456f-85d1-f045cba5fac5/public_url"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="underline decoration-line underline-offset-4 transition-colors hover:decoration-primary"
+      >
+        AWS Certified AI Practitioner
+      </a>
+    </li>
+  </ul>
+
+  <div class="mt-10 flex flex-wrap items-center gap-4">
+    <a
+      href="/projects"
+      class="rounded-md bg-fg px-5 py-2.5 text-sm font-medium text-canvas transition-colors hover:bg-white"
     >
-    </div>
-    <div
-      class="animate-gradientMove2 h-80 bg-linear-to-br from-[#277752] to-[#02ffee] opacity-30 blur-[120px]"
+      View projects
+    </a>
+    <a
+      href="/contact"
+      class="rounded-md border border-line px-5 py-2.5 text-sm font-medium text-fg transition-colors hover:border-muted"
     >
+      Get in touch
+    </a>
+    <div class="ml-2">
+      <SocialIcons />
     </div>
   </div>
-
-  <main
-    class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4"
-  >
-    <h1 class="text-4xl md:text-7xl font-bold text-white text-shadow mt-10">
-      Charlie Gallagher
-    </h1>
-
-    <TypeEfect client:visible />
-
-    <p
-      class="text-xs md:text-xl text-white max-w-sm md:max-w-xl font-semibold mt-3"
-    >
-      3rd Year BSc in Software Engineering with AI for Cloud Computing. AI
-      Innovation Engineer Intern at Hewlett Packard Enterprise. Chair of RUN-EU
-      Student Council.
-    </p>
-    <SocialIcons client:visible />
-    <div class="flex flex-col md:flex-row gap-4 mt-6">
-      <a
-        href="#about"
-        class="px-6 py-3 bg-primary hover:bg-secondary text-white font-semibold rounded-3xl transition-all duration-150
-           drop-shadow-[2px_2px_0_#0debd8] active:translate-0.5 active:drop-shadow-none"
-      >
-        View Portfolio
-      </a>
-    </div>
-  </main>
 </header>

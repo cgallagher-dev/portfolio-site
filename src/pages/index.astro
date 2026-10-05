@@ -3,18 +3,18 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/home/header/header.astro";
 import Slider from "../components/home/header/slider.astro";
 import AboutHome from "../components/home/aboutHome/aboutHome.astro";
-import Leadership from "../components/home/leadership/leadership.astro";
-import HomeProyect from "../components/home/homeProyect/homeProyect.astro";
-import FAQS from "../components/home/faqs/faqs.jsx";
+import HomeProjects from "../components/home/featuredProjects/featuredProjects.astro";
+import Experience from "../components/about/experience.astro";
+import Recognition from "../components/home/recognition/recognition.astro";
 import Banner from "../components/commons/banners/banner.astro";
 ---
 
 <Layout>
   <Header />
   <Slider />
+  <HomeProjects />
+  <Experience />
+  <Recognition />
   <AboutHome />
-  <Leadership />
-  <HomeProyect />
-  <FAQS client:visible />
   <Banner />
 </Layout>

@@ -1,69 +1,55 @@
 ---
-const technologies = [
-  "python",
-  "java",
-  "kotlin",
-  "docker",
-  "tensorflow",
-  "aws",
-  "azure",
-  "git",
-  "androidstudio",
-  "react",
-  "typeScript",
-  "astro",
+const stack = [
+  { name: "Python", icon: "python" },
+  { name: "TypeScript", icon: "typescript" },
+  { name: "Go", icon: "go" },
+  { name: "React", icon: "react" },
+  { name: "FastAPI", icon: "fastapi" },
+  { name: "Kubernetes", icon: "kubernetes" },
+  { name: "Docker", icon: "docker" },
+  { name: "AWS", img: "/svg/aws.svg" },
+  { name: "Azure", icon: "azure" },
+  { name: "PostgreSQL", icon: "postgresql" },
+  { name: "PyTorch", icon: "pytorch" },
+  { name: "GitHub Actions", icon: "githubactions" },
+  { name: "Java", icon: "java" },
+  { name: "Linux", icon: "linux" },
 ];
+
+// Two copies so the strip loops by sliding exactly half its width
+const loop = [...stack, ...stack];
 ---
 
-<div class="relative overflow-x-hidden px-8 py-8">
-  <div class="animate-scroll hover:animate-paused flex w-max gap-12 md:gap-20">
+<section
+  aria-label="Technologies I work with"
+  class="slider-mask overflow-hidden border-y border-line py-8"
+>
+  <ul class="animate-scroll flex w-max gap-16 hover:[animation-play-state:paused]">
     {
-      [
-        { name: "Python", icon: "python" },
-        { name: "Java", icon: "java" },
-        { name: "Kotlin", icon: "kotlin" },
-        { name: "PHP", icon: "php" },
-        { name: "JavaScript", icon: "javascript" },
-        { name: "SQL", icon: "mysql" },
-        { name: "Docker", icon: "docker" },
-        { name: "TensorFlow", icon: "tensorflow" },
-        { name: "PyTorch", icon: "pytorch" },
-        { name: "AWS", img: "/svg/aws.svg" }, // Force local SVG
-        { name: "Azure", icon: "azure" },
-        { name: "Git", icon: "git" },
-        { name: "Android Studio", icon: "androidstudio" },
-      ].concat([
-        { name: "Python", icon: "python" },
-        { name: "Java", icon: "java" },
-        { name: "Kotlin", icon: "kotlin" },
-        { name: "PHP", icon: "php" },
-        { name: "JavaScript", icon: "javascript" },
-        { name: "SQL", icon: "mysql" },
-        { name: "Docker", icon: "docker" },
-        { name: "TensorFlow", icon: "tensorflow" },
-        { name: "PyTorch", icon: "pytorch" },
-        { name: "AWS", img: "/svg/aws.svg" },
-        { name: "Azure", icon: "azure" },
-        { name: "Git", icon: "git" },
-        { name: "Android Studio", icon: "androidstudio" },
-      ]).map((tech) => (
-        <div class="group flex items-center gap-2 transition-all duration-300">
+      loop.map((tech, i) => (
+        <li
+          class="group flex items-center gap-3"
+          aria-hidden={i >= stack.length ? "true" : undefined}
+        >
           <img
-            src={tech.img || `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tech.icon}/${tech.icon}-original.svg`}
-            alt={tech.name}
-            class="h-8 w-auto object-contain transition-transform group-hover:scale-110"
+            src={
+              tech.img ||
+              `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tech.icon}/${tech.icon}-original.svg`
+            }
+            alt=""
+            class="h-8 w-8 object-contain transition-transform group-hover:scale-110"
             width="32"
             height="32"
             loading="lazy"
           />
-          <span class="text-lg font-medium text-white">
+          <span class="text-lg text-fg">
             {tech.name}
           </span>
-        </div>
+        </li>
       ))
     }
-  </div>
-</div>
+  </ul>
+</section>
 
 <style is:global>
   @keyframes scroll {
@@ -78,9 +64,19 @@ const technologies = [
     animation: scroll 60s linear infinite;
   }
 
-  @media (min-width: 768px) {
+  .slider-mask {
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
+  }
+
+  @media (prefers-reduced-motion: reduce) {
     .animate-scroll {
-      animation-duration: 80s;
+      animation: none;
     }
   }
 </style>

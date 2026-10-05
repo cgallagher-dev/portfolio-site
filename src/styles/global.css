@@ -1,77 +1,48 @@
 @import "tailwindcss";
 
-.primary {
-  color: #7836cf;
-}
-.secondary {
-  color: #512092;
-}
-.bg-primary {
-  background-color: #7836cf;
-}
-.bg-secondary {
-  background-color: #512092;
-}
-.text-primary {
-  color: #7836cf;
+@theme {
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-canvas: #0c0c0d;
+  --color-surface: #151517;
+  --color-line: #27272a;
+  --color-fg: #ececec;
+  --color-muted: #a1a1aa;
+
+  /* Older sections still use the primary/secondary class names */
+  --color-primary: #5cc8a8;
+  --color-secondary: #7fd8bd;
 }
 
-/* reglas hover (usar estas clases directamente) */
-.hover-text-secondary:hover {
-  color: #7836cf;
-}
-.hover-bg-secondary:hover {
-  background-color: #7836cf;
-}
-.hover\:bg-secondary:hover {
-  background-color: #512092;
-}
-.hover\:text-secondary:hover {
-  color: #512092;
-}
-
-.text-shadow {
-  text-shadow: 2px 2px 0 #620deb;
-}
-
-.text-shadow-cyan {
-  text-shadow: 2px 2px 0 #0debd8;
-}
-
-/* estilos del home */
-
-@keyframes gradientMove {
-  0% {
-    transform: translateX(0) translateY(0);
+@layer base {
+  html {
+    scroll-behavior: smooth;
   }
-  50% {
-    transform: translateX(-250px) translateY(120px);
-  }
-  100% {
-    transform: translateX(0) translateY(0);
-  }
-}
 
-@keyframes gradientMove2 {
-  0% {
-    transform: translateX(0) translateY(0);
+  body {
+    @apply bg-canvas font-sans text-fg antialiased;
   }
-  50% {
-    transform: translateX(250px) translateY(-120px);
+
+  ::selection {
+    @apply bg-primary text-canvas;
   }
-  100% {
-    transform: translateX(0) translateY(0);
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary;
   }
-}
 
-.animate-gradientMove {
-  animation: gradientMove 8s ease-in-out infinite alternate;
-}
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
 
-.animate-gradientMove2 {
-  animation: gradientMove2 8s ease-in-out infinite alternate;
-}
-
-.text-shadow {
-  text-shadow: 2px 2px 0 #6d0deb;
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 }

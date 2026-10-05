@@ -1,54 +1,94 @@
-<section class="site-container mt-14 mx-auto max-w-6xl px-4">
-  <div class="site-container mt-14">
-    <h2
-      class="text-4xl font-bold flex flex-col items-center gap-6 text-center whitespace-nowrap text-white md:flex-row md:items-center md:text-start"
-    >
-      <span class="drop-shadow-[2px_2px_0_#7836cf]">Technologies & Stack</span>
-      <span
-        class="hidden h-1.5 grow rounded-lg drop-shadow-[2px_2px_0_#0debd8] bg-[#7836cf] md:block"
-      ></span>
-    </h2>
-  </div>
-  <div class="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-    {
-      [
-        { name: "Python", icon: "python" },
-        { name: "Java", icon: "java" },
-        { name: "Kotlin", icon: "kotlin" },
-        { name: "PHP", icon: "php" },
-        { name: "JavaScript", icon: "javascript" },
-        { name: "HTML", icon: "html5" },
-        { name: "CSS", icon: "css3" },
-        { name: "SQL", icon: "mysql" },
-        { name: "TensorFlow", icon: "tensorflow" },
-        { name: "PyTorch", icon: "pytorch" },
-        { name: "Docker", icon: "docker" },
-        { name: "AWS", img: "/svg/aws.svg" }, // Force local SVG
-        { name: "Azure", icon: "azure" },
-        { name: "Git", icon: "git" },
-        { name: "GitHub", icon: "github" },
-        { name: "Android Studio", icon: "androidstudio" },
-        { name: "VS Code", icon: "vscode" },
-        { name: "PyCharm", icon: "pycharm" },
-        { name: "RAG", icon: "networkx" },
-        { name: "LangChain", icon: "python" },
-      ].map((skill) => (
-        <div class="relative group">
-          <div class="absolute inset-0 -z-10 rounded-lg  blur-3xl opacity-0 transition-opacity group-hover:opacity-100" />
+---
+import { SiHuggingface, SiLangchain, SiOllama, SiPydantic } from "react-icons/si";
 
-          <div class="flex flex-col items-center bg-gray-900 p-4 drop-shadow-[4px_4px_0_#7836cf] rounded-lg shadow-md transition-transform hover:scale-105">
-            <img
-              src={
-                skill.img ||
-                `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-original.svg`
-              }
-              alt={skill.name}
-              class="w-12 h-12"
-            />
-            <p class="mt-2 text-white text-lg font-semibold drop-shadow-[1px_1px_0_#7836cf]">
-              {skill.name}
-            </p>
-          </div>
+const devicon = (name: string) =>
+  `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${name}/${name}-original.svg`;
+
+const groups = [
+  {
+    name: "Languages",
+    items: [
+      { name: "Python", img: devicon("python") },
+      { name: "TypeScript", img: devicon("typescript") },
+      { name: "Go", img: devicon("go") },
+      { name: "Java", img: devicon("java") },
+      { name: "JavaScript", img: devicon("javascript") },
+      { name: "Bash", img: devicon("bash") },
+    ],
+  },
+  {
+    name: "AI and data",
+    items: [
+      { name: "PyTorch", img: devicon("pytorch") },
+      { name: "TensorFlow", img: devicon("tensorflow") },
+      { name: "scikit-learn", img: devicon("scikitlearn") },
+      { name: "Pandas", img: devicon("pandas") },
+      { name: "LangChain", Icon: SiLangchain },
+      { name: "Ollama", Icon: SiOllama },
+      { name: "Hugging Face", Icon: SiHuggingface },
+    ],
+  },
+  {
+    name: "Apps and APIs",
+    items: [
+      { name: "React", img: devicon("react") },
+      { name: "FastAPI", img: devicon("fastapi") },
+      { name: "Pydantic", Icon: SiPydantic },
+      { name: "Flutter", img: devicon("flutter") },
+      { name: "Figma", img: devicon("figma") },
+    ],
+  },
+  {
+    name: "Cloud and DevOps",
+    items: [
+      { name: "Kubernetes", img: devicon("kubernetes") },
+      { name: "Docker", img: devicon("docker") },
+      { name: "AWS", img: "/svg/aws.svg" },
+      { name: "Azure", img: devicon("azure") },
+      { name: "PostgreSQL", img: devicon("postgresql") },
+      { name: "Linux", img: devicon("linux") },
+      { name: "GitHub Actions", img: devicon("githubactions") },
+      { name: "Jenkins", img: devicon("jenkins") },
+      { name: "Git", img: devicon("git") },
+    ],
+  },
+];
+---
+
+<section id="skills" class="mx-auto max-w-5xl px-6 py-20">
+  <p class="font-mono text-sm text-primary">Skills</p>
+  <h2 class="mt-2 text-3xl font-semibold tracking-tight text-fg">
+    Technologies I use
+  </h2>
+  <p class="mt-3 max-w-2xl text-muted">
+    Day to day I work mostly in Python and TypeScript, building agents with
+    A2A, MCP and RAG, and shipping them in containers.
+  </p>
+
+  <div class="mt-10 space-y-10">
+    {
+      groups.map((group) => (
+        <div>
+          <h3 class="text-sm font-medium text-fg">{group.name}</h3>
+          <ul class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5">
+            {group.items.map((item) => (
+              <li class="group flex items-center gap-3 rounded-lg border border-line bg-surface px-4 py-3 transition-colors hover:border-muted/50">
+                {item.Icon ? (
+                  <item.Icon className="h-6 w-6 shrink-0 text-fg" />
+                ) : (
+                  <img
+                    src={item.img}
+                    alt=""
+                    width="24"
+                    height="24"
+                    loading="lazy"
+                    class="h-6 w-6 shrink-0 object-contain"
+                  />
+                )}
+                <span class="text-sm text-fg">{item.name}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       ))
     }

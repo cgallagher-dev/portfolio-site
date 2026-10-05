@@ -1,0 +1,73 @@
+---
+import { HiArrowRight, HiArrowUpRight } from "react-icons/hi2";
+
+interface Props {
+  title: string;
+  label: string;
+  summary: string;
+  outcome?: string;
+  stack: string[];
+  status?: string;
+  code?: string;
+  detailPage?: string;
+}
+
+const { title, label, summary, outcome, stack, status, code, detailPage } =
+  Astro.props;
+---
+
+<article
+  class="flex h-full flex-col rounded-lg border border-line bg-surface p-6 transition-colors hover:border-muted/50"
+>
+  <div class="flex items-center justify-between gap-4">
+    <p class="font-mono text-xs text-muted">{label}</p>
+    {
+      status && (
+        <span class="rounded-full border border-primary/40 px-2 py-0.5 font-mono text-xs text-primary">
+          {status}
+        </span>
+      )
+    }
+  </div>
+
+  <h3 class="mt-3 text-lg font-medium text-fg">{title}</h3>
+  <p class="mt-3 text-sm leading-relaxed text-muted">{summary}</p>
+  {outcome && <p class="mt-3 text-sm leading-relaxed text-fg">{outcome}</p>}
+
+  <ul class="mt-5 flex flex-wrap gap-2" aria-label="Technologies">
+    {
+      stack.map((tech) => (
+        <li class="rounded border border-line px-2 py-0.5 font-mono text-xs text-muted">
+          {tech}
+        </li>
+      ))
+    }
+  </ul>
+
+  {
+    (detailPage || code) && (
+      <div class="mt-auto flex gap-6 pt-6 text-sm">
+        {detailPage && (
+          <a
+            href={detailPage}
+            class="group inline-flex items-center gap-1 text-fg hover:text-primary"
+          >
+            Read more<span class="sr-only"> about {title}</span>
+            <HiArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+          </a>
+        )}
+        {code && (
+          <a
+            href={code}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group inline-flex items-center gap-1 text-fg hover:text-primary"
+          >
+            Code<span class="sr-only"> for {title} on GitHub</span>
+            <HiArrowUpRight className="h-4 w-4" />
+          </a>
+        )}
+      </div>
+    )
+  }
+</article>

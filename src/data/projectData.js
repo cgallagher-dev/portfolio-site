@@ -1,94 +1,87 @@
-export const proyectos = [
+export const projects = [
   {
-    titulo: "bee-safe-cv",
-    descripcion:
-      "Edge AI computer vision system for honeybee health monitoring. Developed using YOLOv8 and TensorFlow Lite for optimised on-device inference.",
-    imagen: "/img/projects/bee-safe.png",
-    tecnologias: ["Python", "YOLOv8", "TensorFlow Lite", "On-Device Inference", "Edge AI", "Computer Vision"],
-
-    categoria: "Edge AI",
+    title: "Small Agent Safety Evaluation",
+    kind: "personal",
+    label: "Final-year project",
+    status: "In progress",
+    featured: true,
+    summary:
+      "When a small AI agent fails a harmful task, it might have refused, or it might just not be capable of doing it. Most safety scores can't tell those apart. I'm building an open-source tool that pairs each harmful task with a harmless one using the same tools, so you can see which.",
+    outcome:
+      "I'll use it to compare three sizes of Qwen3.5 (4B, 9B and 27B), with reasoning on and off. It's built on Inspect AI and AgentHarm, test-first, with a CLI, a local dashboard and PDF reports.",
+    stack: ["Python", "Inspect AI", "AgentHarm", "Ollama", "pytest"],
+  },
+  {
+    title: "Knowledge Agent for a Multi-Agent Platform",
+    kind: "work",
+    label: "HPE, Jun 2026 - Present",
+    featured: true,
+    summary:
+      "An agent that the other agents on a multi-agent platform can ask when they need to look something up. It pulls product docs and asset data through MCP, and the answer it hands back is put together in code rather than written by the model, so it can be trusted.",
+    outcome:
+      "It became the innovation team's fastest proof of concept to make it onto the product roadmap. It also led to a patent mining session and two papers I co-wrote.",
+    stack: ["Python", "Google ADK", "A2A", "MCP", "FastAPI", "pgvector", "Docker"],
+  },
+  {
+    title: "AI Report Generation Tool",
+    kind: "work",
+    label: "HPE, Jan - Jun 2026",
+    featured: true,
+    summary:
+      "Sales engineers upload a spreadsheet of a customer's hardware and get back a finished report. Python does the number crunching, an LLM writes the narrative, and Pydantic schemas catch any output that doesn't fit before it reaches the document. Reports export to Word, PowerPoint, PDF or Excel.",
+    outcome:
+      "I led the architecture and backend. It went from an empty repo to production approval in ten weeks, with over 100 tests and a Kubernetes deployment, and it's now been productised. It also won me a Bronze Star.",
+    stack: ["Python", "Pandas", "Pydantic", "React", "Grommet", "Docker", "Kubernetes"],
+  },
+  {
+    title: "Agentic Cloud Migration Platform",
+    kind: "work",
+    label: "HPE, Feb - Jul 2026",
+    featured: true,
+    summary:
+      "A large platform that uses AI agents to help move workloads to the cloud, built by teams in Galway, India and the US. I built two of its action agents: a storage agent, and a pre-flight agent that checks an environment is ready before a migration starts.",
+    outcome:
+      "I also worked on the frontend, and was picked for the small team that built the demo for a major industry conference, turning the UX team's research and Figma designs into a working UI.",
+    stack: ["TypeScript", "React", "Go", "Figma"],
+  },
+  {
+    title: "Storage Health Check Tool",
+    kind: "work",
+    label: "HPE, Sep 2026 - Present",
+    status: "In progress",
+    summary:
+      "A web app that walks solution architects through turning storage array exports into a health check report, so every report is checked the same way. It validates the data before running any analysis, and throws out any AI-written wording that changes a number.",
+    stack: ["Python", "FastAPI", "Pandas", "React", "Grommet", "python-pptx", "Docker"],
+  },
+  {
+    title: "bee-safe-cv",
+    kind: "personal",
+    label: "RUN-EU Short Advanced Programme",
+    summary:
+      "A phone app that spots Varroa mites on honeybees and tells male and female bees apart, running the model on the phone with no internet needed. I built it with an international student team using Scrum.",
+    outcome:
+      "We presented it to staff and industry partners at Howest University of Applied Sciences in Belgium.",
+    stack: ["Python", "YOLOv8", "TensorFlow Lite", "Flutter", "Roboflow"],
     detailPage: "/projects/bee-safe-cv",
   },
   {
-    titulo: "mushroom-classifier",
-    descripcion:
-      "Machine Learning binary classification model for predicting mushroom edibility. Features extensive data preprocessing, One-Hot Encoding, and Decision Tree algorithms.",
-    imagen: "/img/projects/mushroom.png",
-    tecnologias: ["Python", "Scikit-Learn", "Pandas", "One-Hot Encoding", "Decision Trees", "ML"],
-
-    codigo: "https://github.com/cgallagher-dev/mushroom-classifier",
-    categoria: "Machine Learning",
-    detailPage: "/projects/mushroom-classifier",
-  },
-  {
-    titulo: "distributed-inventory-manager",
-    descripcion:
-      "Distributed asset management system refactored for enterprise scalability. Implements Python MVC pattern with robust CI/CD pipelines.",
-    imagen: "/img/projects/inventory.png",
-    tecnologias: ["Python", "MVC Pattern", "Pytest", "Jenkins", "SonarQube", "Distributed Systems"],
-
-    codigo: "https://github.com/cgallagher-dev/distributed-inventory-manager-project",
-    categoria: "Distributed Systems",
+    title: "distributed-inventory-manager",
+    kind: "personal",
+    label: "Coursework",
+    summary:
+      "An inventory system from a group project that I refactored into a cleaner MVC structure. I added tests and a CI pipeline that checks the code on every change.",
+    stack: ["Python", "Pytest", "Jenkins", "SonarQube"],
+    code: "https://github.com/cgallagher-dev/distributed-inventory-manager-project",
     detailPage: "/projects/distributed-inventory-management",
   },
   {
-    titulo: "enterprise-resource-controller",
-    descripcion:
-      "Java-based MVC application implementing Remote Method Invocation (RMI) for robust remote resource management and enterprise architecture.",
-    imagen: "/img/projects/enterprise.png",
-    tecnologias: ["Java", "MVC", "RMI", "Remote Management", "Enterprise Architecture"],
-
-    codigo: "https://github.com/cgallagher-dev/enterprise-resource-controller",
-    categoria: "Distributed Systems",
-  },
-  {
-    titulo: "responsive-web-portal",
-    descripcion:
-      "Full stack Single Page Application (SPA) built with PHP, Slim Framework, and AJAX to handle dynamic resource allocation and responsive UI.",
-    imagen: "/img/projects/portal.png",
-    tecnologias: ["PHP", "Slim Framework", "AJAX", "SPA", "Dynamic Resource Allocation"],
-
-    codigo: "https://github.com/cgallagher-dev/responsive-web-portal",
-    categoria: "Full-Stack Development",
-  },
-  {
-    titulo: "legacy-data-service",
-    descripcion:
-      "Java Servlet application showcasing the DAO pattern and session persistence with HSQLDB. Demonstrates legacy system modernisation techniques.",
-    imagen: "/img/placeholders/distributed-placeholder.png",
-    tecnologias: ["Java", "Servlets", "DAO Pattern", "HSQLDB", "Session Persistence"],
-
-    codigo: "https://github.com/cgallagher-dev/legacy-data-service",
-    categoria: "Backend Engineering",
-  },
-  {
-    titulo: "bowling-logic-engine",
-    descripcion:
-      "Algorithmic engine for complex Ten-Pin Bowling scoring logic. Built using Test-Driven Development (TDD) to ensure robust state management.",
-    imagen: "/img/projects/bowling.png",
-    tecnologias: ["Python", "TDD", "State Management", "Algorithm Design"],
-
-    codigo: "https://github.com/cgallagher-dev/bowling-logic-engine",
-    categoria: "Algorithms & Logic",
-  },
-  {
-    titulo: "itinerary-planner",
-    descripcion:
-      "Logic-focused Python application using immutable dataclasses for robust scheduling and itinerary management.",
-    imagen: "/img/projects/itinerary.png",
-    tecnologias: ["Python", "Immutable Dataclasses", "Scheduling Logic", "Robust Design"],
-
-    codigo: "https://github.com/cgallagher-dev/travel-itinerary-planner",
-    categoria: "Full-Stack Development",
-  },
-  {
-    titulo: "expenses-tracker",
-    descripcion:
-      "Financial analytics tool utilising Matplotlib for spending visualisation and SQLite for reliable local persistence.",
-    imagen: "/img/projects/expenses.png",
-    tecnologias: ["Python", "Matplotlib", "SQLite", "Financial Analytics", "Visualisation"],
-
-    codigo: "https://github.com/cgallagher-dev/personal-expenses-tracker",
-    categoria: "Full-Stack Development",
+    title: "mushroom-classifier",
+    kind: "personal",
+    label: "Coursework",
+    summary:
+      "A model that predicts whether a mushroom is safe to eat. I used a decision tree so you can follow exactly why it made each call.",
+    stack: ["Python", "scikit-learn", "Pandas"],
+    code: "https://github.com/cgallagher-dev/mushroom-classifier",
+    detailPage: "/projects/mushroom-classifier",
   },
 ];
