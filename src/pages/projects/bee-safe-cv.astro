@@ -1,5 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import ProjectLayout from "../../layouts/ProjectLayout.astro";
+import detections from "../../assets/img/projects/bee-detections.png";
+import howest from "../../assets/img/projects/bee-howest.jpg";
 ---
 
 <ProjectLayout
@@ -39,6 +42,17 @@ import ProjectLayout from "../../layouts/ProjectLayout.astro";
         device and shows detections over the camera image.
       </li>
     </ol>
+    <figure class="mt-8">
+      <Image
+        src={detections}
+        alt="Grid of bee images with blue boxes around each bee and smaller boxes labelled varroa around the mites"
+        class="rounded-lg border border-line"
+      />
+      <figcaption class="mt-3 text-sm text-muted">
+        Detections from the trained model, with confidence scores for each bee
+        and mite.
+      </figcaption>
+    </figure>
   </section>
 
   <section>
@@ -48,5 +62,15 @@ import ProjectLayout from "../../layouts/ProjectLayout.astro";
       stand-ups and demos. We presented the final app to faculty and industry
       partners at Howest University of Applied Sciences in Kortrijk, Belgium.
     </p>
+    <figure class="mt-8">
+      <Image
+        src={howest}
+        alt="Charlie presenting the team's roadmap slide to the audience at Howest"
+        class="rounded-lg border border-line"
+      />
+      <figcaption class="mt-3 text-sm text-muted">
+        Presenting our roadmap at Howest.
+      </figcaption>
+    </figure>
   </section>
 </ProjectLayout>

@@ -74,7 +74,7 @@ export const projects = [
       "The real focus was the process: user stories and epics in Jira, design docs in Confluence, and a Jenkins pipeline running tests and SonarQube analysis on every change.",
     stack: ["Python", "SQLite", "Pytest", "Jenkins", "SonarQube", "Jira", "Confluence"],
     code: "https://github.com/cgallagher-dev/distributed-inventory-manager-project",
-    detailPage: "/projects/distributed-inventory-management",
+    detailPage: "/projects/distributed-inventory-manager",
   },
   {
     title: "mushroom-classifier",

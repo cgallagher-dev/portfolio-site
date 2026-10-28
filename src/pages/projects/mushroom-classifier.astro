@@ -1,6 +1,8 @@
 ---
 import ProjectLayout from "../../layouts/ProjectLayout.astro";
+import { Image } from "astro:assets";
 import Diagram from "../../components/project/diagram.astro";
+import appScreenshot from "../../assets/img/projects/mushroom-app.png";
 ---
 
 <ProjectLayout
@@ -17,6 +19,17 @@ import Diagram from "../../components/project/diagram.astro";
     },
   ]}
 >
+  <figure>
+    <Image
+      src={appScreenshot}
+      alt="The app with feature dropdowns on the left, a dashboard of top features on the right, and a Predicted: Poisonous result"
+      class="rounded-lg border border-line"
+    />
+    <figcaption class="mt-3 text-sm text-muted">
+      The app after classifying a mushroom with a foul odour.
+    </figcaption>
+  </figure>
+
   <section>
     <h2>Architecture</h2>
     <Diagram
@@ -73,6 +86,18 @@ import Diagram from "../../components/project/diagram.astro";
       be able to see why the model said "edible". A decision tree gives a
       clear path for each prediction, and its feature importances feed the
       chart on the dashboard.
+    </p>
+  </section>
+
+  <section>
+    <h2>About the 100% accuracy</h2>
+    <p>
+      The model scores 100% on the held-out quarter of the data. That isn't a
+      sign of a bug or of testing on the training set. This dataset is known
+      to be almost perfectly separable, and odour alone gets you most of the
+      way, which the feature chart shows. It does mean the score says more
+      about the dataset than the model, and real mushrooms in the wild
+      wouldn't be this clean.
     </p>
   </section>
 
